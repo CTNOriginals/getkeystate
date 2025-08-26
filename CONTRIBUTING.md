@@ -11,7 +11,7 @@ think for example of an update where you had to pivot from one strategy to anoth
 You may also create sub-issues under that initial contribution issue that further explain you process.
 
 You will first have to create a fork of this repository,
-make sure you fork the [development](https://github.com/CTNOriginals/getkeystate/tree/development) branch this is the branch that is the most up to date out of all and the only one allowed to merge back into.
+make sure you fork the [development branch](https://github.com/CTNOriginals/getkeystate/tree/development) this is the branch that is the most up to date out of all and the only one allowed to merge back into.
 
 
 ## Commits
@@ -40,6 +40,6 @@ If you are unsure on how to style something, try to look around for some other c
 
 Once you are done making changes to your fork of the project and made everything nice and tidy again, you are ready to finally submit your PR and receive the praise you have been looking forward to.
 
-When you create the PR, make sure to merge it back into the [development](https://github.com/CTNOriginals/getkeystate/tree/development) branch.
+When you create the PR, make sure to merge it back into the [development branch](https://github.com/CTNOriginals/getkeystate/tree/development).
 
 After you submit the pull request, someone will have to review it, in this process it is very likely they will have further questions about the changes you made, so keep an eye on your PR.
