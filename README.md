@@ -54,7 +54,7 @@ func main() {
 
 |Condition|Active|Toggled|Value|
 |---------|:----:|:-----:|:---:|
-|CapsLock is __not__ held down|`false`|`false`|`0`|
-|CapsLock __is__ held down|`true`|`true`|`3`|
-|CapsLock __is__ toggled but is __not__ held down|`false`|`true`|`1`|
-|CapsLock __is__ toggled and __is__ held down|`true`|`false`|`2`|
+|CapsLock is __not__ held down|`false`|`false`|`0` (`00`)|
+|CapsLock __is__ held down|`true`|`true`|`3` (`11`)|
+|CapsLock __is__ toggled but is __not__ held down|`false`|`true`|`1` (`01`)|
+|CapsLock __is__ toggled and __is__ held down|`true`|`false`|`2` (`10`)|
