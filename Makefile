@@ -29,58 +29,14 @@ CURRENT_VERSION_MINOR := $(MAJOR).$(NEXT_MINOR).0
 CURRENT_VERSION_MAJOR := $(NEXT_MAJOR).0.0
 endif
 
-DATE                = $(shell date +'%d.%m.%Y')
-TIME                = $(shell date +'%H:%M:%S')
-COMMIT             := $(shell git rev-parse HEAD)
-AUTHOR             := $(firstword $(subst @, ,$(shell git show --format="%aE" $(COMMIT))))
-BRANCH_NAME        := $(shell git rev-parse --abbrev-ref HEAD)
-
-TAG_MESSAGE         = "$(TIME) $(DATE) $(AUTHOR) $(BRANCH_NAME)"
-COMMIT_MESSAGE     := $(shell git log --format=%B -n 1 $(COMMIT))
-
-CURRENT_TAG_PATCH  := "v$(CURRENT_VERSION_PATCH)"
-CURRENT_TAG_MINOR  := "v$(CURRENT_VERSION_MINOR)"
-CURRENT_TAG_MAJOR  := "v$(CURRENT_VERSION_MAJOR)"
-
 # --- Version commands ---
-.PHONY: version version-patch version-minor version-majo
+.PHONY: version
 
 version:
-	@$(MAKE) version-patch
-
-version-patch:
 	@echo "$(CURRENT_VERSION_PATCH)"
 
-version-minor:
-	@echo "$(CURRENT_VERSION_MINOR)"
-
-version-major:
-	@echo "$(CURRENT_VERSION_MAJOR)"
-
-# --- Tag commands ---
-.PHONY: tag-patch tag-minor tag-major
-
-tag-patch:
-	@echo "$(CURRENT_TAG_PATCH)"
-
-tag-minor:
-	@echo "$(CURRENT_TAG_MINOR)"
-
-tag-major:
-	@echo "$(CURRENT_TAG_MAJOR)"
-
-# -- Meta info ---
-.PHONY: tag-message commit-message
-
-tag-message:
-	@echo "$(TAG_MESSAGE)"
-
-commit-message:
-	@echo "$(COMMIT_MESSAGE)"
-
-
 # -- Project --
-.PHONY: run wrun
+.PHONY: run wrun crun
 
 run:
 	go run ./test/test.go
@@ -88,7 +44,7 @@ run:
 wrun: # requires wgo: https://github.com/bokwoon95/wgow
 	wgo run ./test/test.go
 
-run-c:
+crun:
 	gcc ./main.c -o main.exe
 	main.exe
 
