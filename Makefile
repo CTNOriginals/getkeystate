@@ -83,10 +83,10 @@ commit-message:
 .PHONY: run wrun
 
 run:
-	go run ./main.go
+	go run ./test/test.go
 
 wrun: # requires wgo: https://github.com/bokwoon95/wgow
-	wgo run ./main.go
+	wgo run ./test/test.go
 
 run-c:
 	gcc ./main.c -o main.exe
