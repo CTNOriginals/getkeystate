@@ -1,6 +1,8 @@
+//go:build windows
+
 package getkeystate
 
-// #include "./main.h"
+// #include <stdio.h>
 import "C"
 
 // #region KeyState
