@@ -25,8 +25,8 @@ You may pass in any key as it's respective [Vertual Key Code](https://learn.micr
 For example, the CapsLock key can be passed in as `VK_CAPITAL`, `0x14` or `20`.
 
 The return value of this function is a 2 bit int that represents the state of the key:<br>
-The __right most__ bit represents wether it is currently held down (active).<br>
-The __left most__ bit represents wether the key is currently toggled (works for any key, but mostly useful for keys like CapsLock).<br>
+The __left most__ bit represents wether it is currently held down (active).<br>
+The __right most__ bit represents wether the key is currently toggled (works for any key, but mostly useful for keys like CapsLock).<br>
 
 ## Example
 

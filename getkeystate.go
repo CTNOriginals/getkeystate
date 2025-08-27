@@ -9,8 +9,8 @@ import "C"
 // key accepts the raw key code interger for VK_BUTTONS listed here: https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes.
 //
 // Returns a key state value that is a 2 bit int.
-// The right most bit represents wether it is currently held down (active).
-// The left most bit represents wether the key is currently toggled.
+// The left most bit represents wether it is currently held down (active).
+// The right most bit represents wether the key is currently toggled.
 //
 // All keys will return a toggled on/off value, but this functionality is mostly useful for keys like CapsLock.
 func GetKeyState(key int) int {
@@ -30,14 +30,14 @@ func GetKeyState(key int) int {
 
 // Takes a keyState that is returned by GetKeyState().
 //
-// Returns wether this key state signals if the key is being held down.
-func IsActive(keyState int) bool {
-	return (keyState & 2) != 0
+// Returns wether this key state signals if the key is toggled.
+func IsToggled(keyState int) bool {
+	return (keyState & 1) != 0
 }
 
 // Takes a keyState that is returned by GetKeyState().
 //
-// Returns wether this key state signals if the key is toggled.
-func IsToggled(keyState int) bool {
-	return (keyState & 1) != 0
+// Returns wether this key state signals if the key is being held down.
+func IsActive(keyState int) bool {
+	return (keyState & 2) != 0
 }
