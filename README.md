@@ -9,12 +9,7 @@ Get the state of any keyboard key.
 ## Requirements
 
 - To be able to compile C code to go: [MinGW-w64](https://sourceforge.net/projects/mingw-w64/files/mingw-w64/mingw-w64-release/)
-- For go to allow C code compilation, you may need to include the following settings in your project:
-```json
-"go.testEnvVars": { "CGO_ENABLED": 1 },
-"go.toolsEnvVars": { "CGO_ENABLED": 1 },
-```
-> These json settings are for the vscode IDE go extension, they may be set differently for other IDE's or may not have to be set at all.
+- For go to allow C code compilation, you may need to set the environment variable `CGO_ENABLED` to `1`.
 
 ## Install package
 
@@ -43,8 +38,8 @@ func main() {
 	var capslock = gks.GetKeyState(0x14)
 
 	println("Value: ", capslock)
-	println("Active: ", capslock.IsActive())
-	println("Toggled: ", capslock.IsToggled())
+	println("Active: ", gks.IsActive(capslock))
+	println("Toggled: ", gks.IsToggled(capslock))
 }
 ```
 
@@ -52,9 +47,9 @@ func main() {
 
 > The following test case assumes that capslock starts as __not__ toggled
 
-|Condition|Active|Toggled|Value|
-|---------|:----:|:-----:|:---:|
-|CapsLock is __not__ held down|`false`|`false`|`0` (`00`)|
-|CapsLock __is__ held down|`true`|`true`|`3` (`11`)|
-|CapsLock __is__ toggled but is __not__ held down|`false`|`true`|`1` (`01`)|
-|CapsLock __is__ toggled and __is__ held down|`true`|`false`|`2` (`10`)|
+|Condition|Value|Active|Toggled|
+|---------|:---:|:----:|:-----:|
+|CapsLock is __not__ held down|`0` (`00`)|`false`|`false`|
+|CapsLock __is__ held down|`3` (`11`)|`true`|`true`|
+|CapsLock __is__ toggled but is __not__ held down|`1` (`01`)|`false`|`true`|
+|CapsLock __is__ toggled and __is__ held down|`2` (`10`)|`true`|`false`|
