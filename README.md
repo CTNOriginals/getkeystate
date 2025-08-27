@@ -22,7 +22,7 @@ go get github.com/CTNOriginals/getkeystate
 Import this package and call the GetKeyState function.
 
 You may pass in any key as it's respective [Vertual Key Code](https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes).<br>
-For example, the CapsLock key (VK_CAPITAL) would be passed in as `0x14` or `20`.
+For example, the CapsLock key can be passed in as `VK_CAPITAL`, `0x14` or `20`.
 
 The return value of this function is a 2 bit int that represents the state of the key:<br>
 The __right most__ bit represents wether it is currently held down (active).<br>
@@ -35,7 +35,7 @@ CapsLock state check
 import gks "github.com/CTNOriginals/getkeystate"
 
 func main() {
-	var capslock = gks.GetKeyState(0x14)
+	var capslock = gks.GetKeyState(gks.VK_CAPITAL)
 
 	println("Value: ", capslock)
 	println("Active: ", gks.IsActive(capslock))
